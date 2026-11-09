@@ -1,0 +1,6 @@
+{
+  "appId": "com.mafoyuthink.app",
+  "appName": "MafoyuThink",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
