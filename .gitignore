@@ -1,8 +1,19 @@
+# rahasia
+.env
+.env.*
+!.env.example
+
+# build & dependensi
 node_modules/
 dist/
-android/.gradle/
-android/build/
-android/app/build/
-.env
-.env.local
+android/
+.gradle/
+
+# jangan commit file biner hasil build / arsip
+*.apk
+*.aab
+*.zip
+
+# sistem
 .DS_Store
+*.log

@@ -1,54 +1,31 @@
-# MafoyuThink
+# MafoyoThink
 
-Aplikasi ruang belajar digital berbasis **React + Vite + Tailwind CSS + Capacitor**.
+Aplikasi kanvas gambar + AI (Gemini) + kalkulator Math. Dibangun mobile-first dengan React + Vite + Tailwind, dibungkus jadi APK memakai Capacitor.
 
-> Repository GitHub bernama **MafoyoThink**. Nama produk di antarmuka ditulis **MafoyuThink**, mengikuti nama paket proyek yang diminta.
+## Fitur
+- **Draw**: pensil, marker, penghapus, garis, kotak, lingkaran, undo/redo, ekspor PNG
+- **AI**: tanya Gemini (boleh sertakan gambar kanvas). Key diisi pengguna sendiri
+- **Math**: hitung ekspresi (sin/cos/tan dalam derajat), selesaikan persamaan linear & kuadrat (variabel `x`), preset
 
-## Fitur yang tersedia
-- Papan tulis responsif: pensil, marker, penghapus, garis, persegi, lingkaran, dan panah.
-- Pengaturan warna, ukuran kuas, dan opasitas.
-- Undo/redo, bersihkan kanvas, dan ekspor PNG.
-- Kalkulator ekspresi matematika berbasis Math.js; tidak menggunakan `eval` atau `new Function`.
-- Studio gambar AI melalui endpoint backend yang dapat dikonfigurasi. API key tidak disimpan di aplikasi klien.
-
-## Teknologi
-- React 18
-- Vite 6
-- Tailwind CSS 3
-- Capacitor 7
-- Math.js
-- Lucide React
-
-## Menjalankan proyek
+## Jalankan
 ```bash
 npm install
-npm run dev
+npm run dev        # development
+npm run build      # build ke folder dist/
 ```
 
-## Build web
-```bash
-npm run build
-npm run preview
-```
+## Aturan penting
+- **Jangan** tanam Gemini API key di kode / APK / GitHub. Tiap pengguna isi sendiri di tab AI (disimpan di localStorage).
+- Jangan commit `.env`, `.apk`, `.zip`.
+- Mobile-first: kanvas prioritas, panel jadi bottom-sheet di HP, sidebar hanya di layar >= md.
 
-## Android
-Pastikan Android Studio dan Android SDK telah terpasang.
-```bash
-npm install
-npx cap add android
-npm run build
-npx cap sync android
-npx cap open android
-```
-
-## Konfigurasi Studio AI
-Buat file `.env` lokal berdasarkan `.env.example`, lalu isi `VITE_AI_API_URL` dengan URL backend milikmu. Backend menerima JSON `{ "prompt": "...", "style": "..." }` dan mengembalikan `{ "imageUrl": "..." }` atau `{ "imageBase64": "...", "mimeType": "image/png" }`. Jangan pernah menaruh secret API key provider AI di frontend atau APK.
-
-## Branch
-- `main`: rilis APK stable.
-- `pre/apk`: rilis APK preview.
-- `fix/Code`: perbaikan bug dan error.
-- `UP/System&UI`: pengembangan sistem dan UI.
-
-## Catatan
-Struktur ini merupakan fondasi modular awal untuk pengembangan lanjutan. Uji di browser dan perangkat Android sebelum membuat rilis produksi.
+## Dokumen
+| File | Isi |
+|---|---|
+| [BRANCHING.md](BRANCHING.md) | aturan branch |
+| [GIT-GUIDE.md](GIT-GUIDE.md) | pull → edit → commit → push di Acode |
+| [PROTECTION.md](PROTECTION.md) | Branch Protection GitHub |
+| [CAPACITOR.md](CAPACITOR.md) | web → APK |
+| [APK-RELEASE.md](APK-RELEASE.md) | rilis APK stable |
+| [CHANGELOG.md](CHANGELOG.md) | catatan perubahan + checklist rilis |
+| [RESET-REPO.md](RESET-REPO.md) | ganti total isi repo |
